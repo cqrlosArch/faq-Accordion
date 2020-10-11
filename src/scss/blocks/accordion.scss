@@ -1,0 +1,70 @@
+.accordion {
+  width: 90%;
+  margin: auto;
+  margin-bottom: 2rem;
+  padding-top: 3rem;
+
+  .title {
+    text-align: center;
+  }
+  .card {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $dividers;
+    padding: 0.5rem;
+
+    &__title {
+      margin: 1rem 0;
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 20px;
+      outline: none;
+      border: none;
+      font-weight: 300;
+      font-size: 14px;
+      @media screen and (min-width:992px){
+        &:hover {
+          font-weight: 700;
+          color: $colorHover;
+        }
+      }
+      &:focus {
+        font-weight: 700;
+      }
+     
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &::after {
+        content: '';
+        background-image: url('../images/icon-arrow-down.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        right: 0px;
+        top: 0;
+        width: 12px;
+        height: inherit;
+        color: $colorHover;
+        margin-top: 5px;
+      }
+    }
+    &__text {
+      width: 90%;
+      font-size: 13px;
+      line-height: 1.3rem;
+      font-weight: 400;
+    }
+    &[open] .card__title::after {
+      content: '';
+      transform: rotate(180deg);
+      margin-top: -5px;
+    }
+   
+  }
+}
